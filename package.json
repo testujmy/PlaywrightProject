@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test-dev": "npx playwright test -g 'Poprawne zalogowanie do banku przy uzyciu lokatorow xpath' --headed"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
