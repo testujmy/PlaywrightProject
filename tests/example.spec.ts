@@ -49,8 +49,10 @@ test('Przykladowy scenariusz testowy do zadania', async ({ page }) => {
   await page.locator("//button[@id='execute_btn']").click();
   //klikniecie ok w modalu potwierdzajacym przelew
   await page.locator("//button[@data-testid='close-button']").click();
-  //assercja sprawdzajaca czy element mowiacy o poprawnym wykonaniu przelewu jest widoczny
-  await expect(page.locator("//span[@data-testid='message-text']")).toBeVisible();
-  //assercja sprawdzajaca czy w tekscie z elementu pojawia sie teskt Przelew wykonany
-  expect(await page.locator("//span[@data-testid='message-text']").textContent()).toContain("Przelew wykonany");
+  //assercja sprawdzajaca czy przycisk wykonaj przelew jest widoczny
+  await expect(page.locator("//button[@id='execute_btn']")).toBeVisible();
+  //assercja sprawdzajaca czy wartosc dostepne srodki nie jest rowna wartosci sprawdzanej
+  expect(await page.locator("//strong[@id='form_account_amount']").textContent()).not.toBe("0,00");
+  //assercja miekka sprawdzajaca czy status po wykonaniu przelewu zawiera ciag Przelew wykonany
+  expect.soft(await page.locator("//span[@data-testid='message-text']").textContent()).toContain("Przelew wykonany");
 });
