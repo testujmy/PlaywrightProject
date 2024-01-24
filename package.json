@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-dev": "npx playwright test -g 'Wykonanie przelewu bankowego' --headed"
+    "test-dev": "npx playwright test -g 'Wykonanie przelewu szybkiego' --headed"
   },
   "keywords": [],
   "author": "",
